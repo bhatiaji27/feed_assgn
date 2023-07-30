@@ -83,6 +83,29 @@
   color: purple;
 }
 
+.loader{
+  margin: 0 auto;
+}
+
+.error{
+  margin: 0 auto;
+  font-family: "Montserrat";
+}
+
+.error h1{
+  color: #dc3d08;
+}
+.error h2{
+  color: #ff6868;
+}
+
+.loader h3{
+  font-family: "Montserrat";
+  color: rgb(68, 13, 86);
+  font-weight: 800;
+
+}
+
 @media screen and (max-width: 768px) {
   .main_content{
     left: 0;

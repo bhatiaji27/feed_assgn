@@ -29,34 +29,34 @@ const SideBar = () => {
         <ul>
           <Link href="/" className={Styles.link_element}>
             <li>
-              <i class="fa-solid fa-house"></i> <span>Home</span>
+              <i className="fa-solid fa-house"></i> <span>Home</span>
             </li>
           </Link>
           <li>
-            <i class="fa-solid fa-magnifying-glass"></i> <span>Search</span>
+            <i className="fa-solid fa-magnifying-glass"></i> <span>Search</span>
           </li>
           <li>
-            <i class="fa-solid fa-magic-wand-sparkles"></i>
+            <i className="fa-solid fa-magic-wand-sparkles"></i>
             <span>Explore</span>
           </li>
           <li>
-            <i class="fa-solid fa-slack"></i>
+            <i className="fa-solid fa-slack"></i>
             <span>Reels</span>
           </li>
           <li>
-            <i class="fa-solid fa-bell"></i>
+            <i className="fa-solid fa-bell"></i>
             <span>Notifications</span>
           </li>
           <li>
-            <i class="fa-solid fa-message"></i>
+            <i className="fa-solid fa-message"></i>
             <span>Messages</span>
           </li>
           <li>
-            <i class="fa-solid fa-plus"></i>
+            <i className="fa-solid fa-plus"></i>
             <span>Create</span>
           </li>
           <li>
-            <i class="fa-solid fa-user"></i>
+            <i className="fa-solid fa-user"></i>
             <span>Profile</span>
           </li>
         </ul>

@@ -9,30 +9,52 @@ import { setLoading, updatePicDisplayStyle } from "@/redux/slices/userSlice";
 import ProfileSection from "@/components/ProfileSection";
 import SideBar from "@/components/SideBar";
 import Layout from "@/components/Layout";
-import GridViewIcon from "../../assets/images/GridViewIcon.svg";
+import { useQuery } from "react-query";
+import { ColorRing } from "react-loader-spinner";
 
 const userCard = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const userName = router.query.userName;
-  const { isLoadingUser, userDetails, userPicsDisplayStyle } = useSelector(
-    (state) => state.user
-  );
 
-  useEffect(() => {
-    if(userName === undefined) return;
-    const fetchUser = async () => {
-      await dispatch(fetchUserDetails({ userName: userName })).unwrap();
-    };
-    fetchUser();
-  }, [userName]);
+  const { isLoadingUser, userPicsDisplayStyle, error } =
+    useSelector((state) => state.user);
 
-  if(isLoadingUser === true) return <Layout><h1> Loading ....</h1></Layout>
+  const { data, isLoading } = useQuery("data", async () => {
+    return await dispatch(fetchUserDetails({ userName: userName })).unwrap();
+  });
 
+  if (isLoadingUser) {
+    return (
+      <Layout>
+        <div className={Styles.loader}>
+          <ColorRing
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="blocks-loading"
+            wrapperStyle={{}}
+            wrapperClass="blocks-wrapper"
+            colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+          />
+          <h3>Loading the profile, just a blink away!</h3>
+        </div>
+      </Layout>
+    );
+  } else if (error?.message) {
+    return (
+      <Layout>
+        <div className={Styles?.error}>
+          <h1>Error {error?.response?.status}</h1>
+          <h2>Error message:- {error?.message}</h2>
+        </div>
+      </Layout>
+    );
+  }
   return (
     <Layout>
       <div className={Styles.cont}>
-        <ProfileSection details={userDetails} />
+        <ProfileSection details={data} />
         <div>
           <div className={Styles.filter_buttons}>
             <div
@@ -52,7 +74,11 @@ const userCard = () => {
                       userPicsDisplayStyle === "ListView" ? "gray" : "black",
                   }}
                 ></i>
-                {userPicsDisplayStyle === "ListView" ? <p>ListView ✅</p> : <></>}
+                {userPicsDisplayStyle === "ListView" ? (
+                  <p>ListView ✅</p>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
             <div
@@ -73,15 +99,19 @@ const userCard = () => {
                   }}
                 ></i>
 
-                {userPicsDisplayStyle === "GridView" ? <p>GridView ✅</p> : <></>}
+                {userPicsDisplayStyle === "GridView" ? (
+                  <p>GridView ✅</p>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
           </div>
           <div className={Styles.view_container}>
             {userPicsDisplayStyle === "ListView" ? (
-              <ListView images={userDetails?.photos} type="Profile_images" />
+              <ListView images={data?.photos} type="Profile_images" />
             ) : (
-              <GridView images={userDetails?.photos} />
+              <GridView images={data?.photos} />
             )}
           </div>
         </div>

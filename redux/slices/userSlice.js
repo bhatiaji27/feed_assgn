@@ -6,7 +6,9 @@ name:"user",
 initialState:{
     userDetails: {},
     userPicsDisplayStyle: 'GridView',
-    isLoadingUser: false
+    isLoadingUser: false,
+    error: null,
+    name: ""
 },
 reducers:{
     fetchUser: (state, action)=>{
@@ -14,6 +16,9 @@ reducers:{
     },
     updatePicDisplayStyle: (state, action) => {
         state.userPicsDisplayStyle = action.payload
+    }, 
+    setLoading: (state, action) => {
+        state.isLoadingUser = action.payload
     }
 },
 extraReducers(builder) {
@@ -21,6 +26,7 @@ extraReducers(builder) {
       .addCase(fetchUserDetails.fulfilled, (state, action) => {
         state.userDetails = action.payload
         state.isLoadingUser = false
+        state.error = null
       })
       .addCase(fetchUserDetails.pending, (state, action) => {
         state.isLoadingUser = true
@@ -28,6 +34,7 @@ extraReducers(builder) {
       .addCase(fetchUserDetails.rejected, (state, action) => {
         state.userDetails = {}
         state.isLoadingUser = false
+        state.error = action.payload
       })
   },
 })

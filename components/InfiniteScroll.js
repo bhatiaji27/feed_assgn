@@ -1,11 +1,12 @@
 import { getARandomPhoto } from "@/redux/actions/photoActions";
-import { increasePageCount } from "@/redux/slices/pageSlice";
+import { increasePageCount, updatePageChange } from "@/redux/slices/pageSlice";
 import { addPhotoToState } from "@/redux/slices/photoSlice";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useQuery } from "react-query";
 
 export const InfiniteScroll = () => {
-  const { page } = useSelector((state) => state.page);
+  const { page, pageChange } = useSelector((state) => state.page);
   const { feedPhotos } = useSelector((state) => state.photo);
   const dispatch = useDispatch();
 
@@ -20,21 +21,27 @@ export const InfiniteScroll = () => {
     } catch (e) {
       console.log(e);
     }
-  }
+  };
+
+  console.log(page, pageChange)
+
+  useEffect(() => {
+    const getAPhoto = async () => {
+      if (page !== undefined && pageChange) {
+        if (feedPhotos.length < 10) {
+          await dispatch(getARandomPhoto({ page: page })).unwrap();
+        } else {
+          dispatch(addPhotoToState(feedPhotos[Math.floor(Math.random() * 10)]));
+        }
+      }
+      dispatch(updatePageChange(false));
+    }
+    getAPhoto();
+  }, [pageChange]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleInfiniteScroll);
     return () => window.removeEventListener("scroll", handleInfiniteScroll);
   }, []);
 
-  useEffect(() => {
-    const fetchAPhoto = async () => {
-      if (feedPhotos.length < 10) {
-        await dispatch(getARandomPhoto({ page: page })).unwrap();
-      } else {
-        dispatch(addPhotoToState(feedPhotos[Math.floor(Math.random() * 10)]));
-      }
-    };
-    fetchAPhoto();
-  }, [page]);
 };
