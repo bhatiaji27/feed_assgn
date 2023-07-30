@@ -7,8 +7,6 @@ const UserCard = ({ userName, profileImage, photoDetails }) => {
 
   const timeSincePostValue = timeSincePost(photoDetails?.created_at);
 
-  console.log(photoDetails)
-
   return (
     <Link href={`/users/${userName}`} className={Styles.link_element}>
       <div className={Styles.container}>

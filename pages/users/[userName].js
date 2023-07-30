@@ -2,10 +2,10 @@ import GridView from "@/components/GridView";
 import { ListView } from "@/components/ListView";
 import { fetchUserDetails } from "@/redux/actions/userActions";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Styles from "../../styles/styles.module.css";
-import { updatePicDisplayStyle } from "@/redux/slices/userSlice";
+import { setLoading, updatePicDisplayStyle } from "@/redux/slices/userSlice";
 import ProfileSection from "@/components/ProfileSection";
 import SideBar from "@/components/SideBar";
 import Layout from "@/components/Layout";
@@ -15,16 +15,19 @@ const userCard = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const userName = router.query.userName;
-  const { userDetails, userPicsDisplayStyle } = useSelector(
+  const { isLoadingUser, userDetails, userPicsDisplayStyle } = useSelector(
     (state) => state.user
   );
 
   useEffect(() => {
+    if(userName === undefined) return;
     const fetchUser = async () => {
       await dispatch(fetchUserDetails({ userName: userName })).unwrap();
     };
     fetchUser();
-  }, []);
+  }, [userName]);
+
+  if(isLoadingUser === true) return <Layout><h1> Loading ....</h1></Layout>
 
   return (
     <Layout>
