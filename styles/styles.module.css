@@ -36,14 +36,18 @@
 
 .container {
   display: flex;
-  min-height: 100vh;
 }
 
 .main_content {
-  flex: 1;
+  flex: 4;
+  position: absolute;
   padding: 20px;
-  margin-left: 27.5vw;
-  margin-right: 10vw;
+  left: 27.5vw; 
+  right: 10vw;
+  text-align: center;
+  z-index: -50;
+  width: 60vw;
+  margin: 0 auto;
 }
 
 .view_container{
@@ -77,4 +81,20 @@
   font-family: 'Montserrat';
   font-weight: 900;
   color: purple;
+}
+
+@media screen and (max-width: 768px) {
+  .main_content{
+    left: 0;
+    right: 0;
+    /* width: 100vw; */
+    margin: 0 auto;
+  }
+  .instagram_divider{
+    width: 60vw;
+    margin: 2rem auto;
+  }
+  .cont{
+    width: 200vw;
+  }
 }

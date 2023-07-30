@@ -14,16 +14,27 @@ const ProfileSection = ({ details }) => {
           </div>
           <div className={Styles.options}>
             <button className={Styles.option_button}>Follow</button>
-            <button disabled={!details?.allow_messages} className={Styles.option_button}>Message</button>
+            <button
+              disabled={!details?.allow_messages}
+              className={Styles.option_button}
+            >
+              Message
+            </button>
             <button className={Styles.option_button}>Report</button>
           </div>
         </div>
         <div className={Styles.account_details}>
-          <p><span>{details?.photos?.length}</span> Posts</p>
-          <p><span>{details?.followers_count}</span> Followers</p>
-          <p><span>{details?.following_count}</span> Following</p>
+          <p>
+            <span>{details?.photos?.length}</span> Posts
+          </p>
+          <p>
+            <span>{details?.followers_count}</span> Followers
+          </p>
+          <p>
+            <span>{details?.following_count}</span> Following
+          </p>
         </div>
-        <div className={Styles.name_container}> 
+        <div className={Styles.name_container}>
           <h3>{details?.name}</h3>
         </div>
       </div>
