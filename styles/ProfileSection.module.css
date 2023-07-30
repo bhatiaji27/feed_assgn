@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&family=Roboto&family=Ubuntu&display=swap");
+
+
+.account_details{
+    display: flex;
+    flex-direction: row;
+}
+
+.account_details p{
+    margin-right: 2rem;
+    font-family: 'Montserrat';
+    line-height: 0.1;
+}
+
+.account_details span{
+    font-weight: 900;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.details_container {
+  flex: 3;
+}
+
+.image_container {
+  flex: 2;
+}
+
+.image_container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px rgb(128, 86, 206) solid;
+}
+
+.name_container{
+    display: flex;
+    justify-content: left;
+    line-height: 0.8;
+}
+
+.name_container h3{
+    font-weight: 400;
+    font-family: 'Ubuntu';
+}
+
+.name {
+  flex: 2;
+}
+
+.name p {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.option_button {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  border: 0.1rem solid #dbdbdb;
+  border-radius: 0.3rem;
+  padding: 0 2.4rem;
+  margin-left: 2rem;
+  font-weight: 600;
+}
+
+.option_button:hover{
+    color: white;
+    background-color: black;
+}
+
+.options {
+  display: flex;
+  flex: 2;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.userDetails_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&family=Roboto&family=Ubuntu&display=swap");
+
+/* .active {
+  border: 10px solid green;
+} */
+
+.cont {
+  text-align: center;
+}
+
+.filter_buttons {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-around;
+  margin-top: 5rem;
+}
+
+.list_view_button,
+.grid_view_button {
+  border: 1px solid white;
+  padding: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.list_view_button:hover,
+.grid_view_button:hover {
+  background: black;
+  color: white;
+}
+
+.list_view_button {
+  margin-right: 10px;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main_content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 27.5vw;
+  margin-right: 10vw;
+}
+
+.view_container{
+  margin-top: 5rem;
+}
+
+.instagram_divider {
+  border: none;
+  height: 2px;
+  width: 700px;
+  background-image: linear-gradient(to right, #ff6868, #ff6868 16%, #fe9448 16%, #fe9448 32%, #ffe548 32%, #ffe548 48%, #47cf73 48%, #47cf73 64%, #55b9f5 64%, #55b9f5 80%, #ac6dfb 80%);
+  background-size: 500% 100%;
+  background-position: right bottom;
+  animation: gradient-flow 2s infinite;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: right bottom;
+  }
+}
+
+.view{
+  width: 7rem;
+}
+
+.view p{
+  font-family: 'Montserrat';
+  font-weight: 900;
+  color: purple;
+}

@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&family=Roboto&family=Ubuntu&display=swap");
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Montserrat';
+}
+
+.info_container{
+    width: 30rem;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.likes_display{
+    line-height: 0.2;
+    margin-left: 0.5rem;
+}
+
+.likes_display span{
+    font-weight: 700;
+}
+
+.link_element{
+    text-decoration: none;
+    color: black;
+}
+
+.post_description{
+    margin-left: 0.3rem;
+    line-height: 2;
+}
+
+.post_options_container{
+    display: flex;
+    flex-direction: row;
+}
+
+.post_btn_options{
+    display: flex;
+    flex-direction: row;
+    flex: 3;
+}
+
+.post_btn_options p{
+    line-height: 0.2;
+    margin-right: 1.5rem;
+    margin-left: 0.3rem;
+}
+
+.post_btn_options p:hover, .share_btn_option p:hover{
+    color: grey;
+}
+
+.user_name:hover{
+    color: blueviolet;
+}
+
+.share_btn_option{
+    flex: 1;
+    text-align: right;
+    line-height: 0.2;
+    margin-right: 0.3rem;
+}
+
+.user_name{
+    font-weight: 800;
+}
