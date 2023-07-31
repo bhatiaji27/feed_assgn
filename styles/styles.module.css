@@ -120,4 +120,8 @@
   .cont{
     width: 200vw;
   }
+  .filter_buttons{
+    width: 100%;
+    font-size: 2.5rem;
+  }
 }

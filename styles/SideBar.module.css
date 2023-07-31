@@ -26,9 +26,17 @@
 
   /* Show the hamburger menu on smaller screens */
 @media screen and (max-width: 768px) {
+    .container{
+      width: 100%;
+      height: 10rem;
+    }
     .hamburger {
       display: flex;
-    }
+      width: 25%;
+      height: 40%;
+      border: 10px solid black;
+      padding: 1rem;
+    } 
   }
 
   /* Hide the sidebar on smaller screens when the menu is closed */
@@ -45,12 +53,20 @@
       top: 0;
       left: 0;
       height: 200%;
-      width: 400px;
+      width: 1000px !important;
       font-size: xx-large;
       background-color: #f2f2f2;
       transform: translateX(-100%);
       transition: transform 0.3s ease;
+      font-size: 5rem;
+
     }
+
+    .sidebar i{
+      margin-right: 3rem;
+    }
+
+
   
     .menuOpen {
       transform: translateX(0);
