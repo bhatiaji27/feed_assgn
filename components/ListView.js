@@ -30,7 +30,7 @@ export const ListView = ({ images, type }) => {
               image={
                 type === "Feed_images" ? photo?.urls?.small : photo?.urls?.small
               }
-              sx={{ height: "40rem", width: "30rem" }}
+              sx={{ height: window.innerHeight < 1400 ? `${window.innerHeight}px` : "40rem", width: "30rem" }}
             />
 
             <ImageDetailsCard details={photo} type={type} />

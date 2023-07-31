@@ -38,3 +38,19 @@
 .link_element{
     text-decoration: none;
 }
+
+@media screen and (max-width: 768px) {
+    .container{
+        width: 90%;
+        height: 10rem;
+    }
+
+    .image_container img{
+        height: 10rem;
+        width: 10rem;
+    }
+
+    .description_container{
+        font-size: 3rem;
+    }
+  }

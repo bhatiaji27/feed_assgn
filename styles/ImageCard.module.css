@@ -4,3 +4,15 @@
     justify-content: center;
     text-align: center;
 }
+
+
+@media screen and (max-width: 768px) {
+    .container{
+        width: 100%;
+    }
+
+    .container img{
+        width: 90% !important;
+        height: 1500px !important;
+    }
+}
